@@ -1,8 +1,10 @@
-import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import remove from "../assets/remove.png";
 import { useCart } from '../context/CartContext';
 
-const CheckoutItem = ({ id, name, description, price, image }) => {
+const width = Dimensions.get('window');
+
+const CheckoutItem = ({ id, title, description, price, image }) => {
 
     const { removeFromCart } = useCart();
 
@@ -18,7 +20,7 @@ const CheckoutItem = ({ id, name, description, price, image }) => {
             </View>
 
             <View style={{ width: 200, marginLeft: 20, }}>
-                <Text style={styles.name}>{name}</Text>
+                <Text style={styles.name}>{title}</Text>
                 <Text style={styles.description}>{description}</Text>
                 <Text style={styles.price}>$ {price}</Text>
                 <TouchableOpacity onPress={handleRemoveFromCart} style={{ alignSelf: "flex-end", marginTop: 20, marginRight: 25}} >
@@ -43,7 +45,7 @@ const CheckoutProduct = () => {
                     <CheckoutItem
                         id={item.id} 
                         description={item.description}
-                        name={item.name}
+                        title={item.title}
                         image={item.image}
                         price={item.price}
                     />
@@ -59,6 +61,7 @@ export default CheckoutProduct;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        width: width,
         padding: 10,
         alignContent: "center",
         display: "flex",

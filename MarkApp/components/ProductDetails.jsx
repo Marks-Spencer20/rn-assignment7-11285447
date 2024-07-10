@@ -1,94 +1,97 @@
-import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
-import remove from "../assets/remove.png";
-import { useCart } from '../context/CartContext';
+import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
+import { useCart } from "../context/CartContext";
+//import SideMenu from "./Sidemenu";
+import { useState } from "react";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import shoppingBag from "../assets/shoppingBag.png";
+import Logo from "../assets/Logo.png";
+//import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 
-const width = Dimensions.get('window');
 
-const CheckoutItem = ({ id, title, description, price, image }) => {
+const ProductDetails = ({ route, navigation }) => {
+    const { product } = route.params || {};
+    const { addToCart, cartItems } = useCart();
+    const cartItemCount = cartItems.length;
+    const [ isMenuOpen, setIsMenuOpen ] = useState(false)
 
-    const { removeFromCart } = useCart();
-
-    const handleRemoveFromCart = () => {
-        removeFromCart(id);
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen)
     }
 
-   
+    const handleAddToCart = () => {
+        addToCart(product);
+    };
+
+
+
     return (
         <View style={styles.container}>
-            <View>
-                <Image style={styles.image} source={image} />
+                <View style={{ margin: 10, zIndex: 1000 }}>
+                {/* <SideMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} navigation={navigation}/> */}
+                    <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginTop: 15 }}>
+                        <View>
+                            <TouchableOpacity onPress={toggleMenu}>
+                                <Ionicons name={isMenuOpen ? "close-outline" : "menu-outline"} size={33} />
+                            </TouchableOpacity>
+                        </View>
+                        <View>
+                            <Image source={Logo} style={{ cursor: "pointer" }} />
+                        </View>
+                        <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginRight: 10 }}>
+                            <View style={{ marginRight: 10 }}>
+                                <Ionicons name="search-outline" size={33} />
+                            </View>
+                            <View>
+                                <TouchableOpacity onPress={() => navigation.navigate("Checkout")}>
+                                    <Image source={shoppingBag} />
+                                    {cartItemCount > 0 ? (
+                                        <View style={styles.cartItemCountContainer}>
+                                            <Text style={styles.cartItemCountText}>{cartItemCount}</Text>
+
+                                        </View>
+                                    ) : (null)
+                                    }
+
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </View>
+                </View>
+                <View>
+                    <Image source={{ uri: product.image }} style={styles.productImage} />
+                    <Text style={styles.productName}>{product.title}</Text>
+                    <Text style={styles.productDescription}>{product.description}</Text>
+                    <Text style={styles.productPrice}>${product.price}</Text>
+                    <TouchableOpacity style={styles.addToCartButton} onPress={handleAddToCart}>
+                        <Text style={styles.addToCartText}>Add to Cart</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
+    );
+};
 
-            <View style={{ width: 200, marginLeft: 20, }}>
-                <Text style={styles.name}>{title}</Text>
-                <Text style={styles.description}>{description}</Text>
-                <Text style={styles.price}>$ {price}</Text>
-                <TouchableOpacity onPress={handleRemoveFromCart} style={{ alignSelf: "flex-end", marginTop: 20, marginRight: 25}} >
-                <Image source={remove} />
-                </TouchableOpacity>
-            </View>
-        </View>
-    )
-}
-
-const CheckoutProduct = () => {
-
-    const { cartItems } = useCart();
-   
-
-    return (
-        <FlatList
-            data={cartItems}
-            keyExtractor={item => item.id}
-            renderItem={({ item }) => (
-                <TouchableOpacity>
-                    <CheckoutItem
-                        id={item.id} 
-                        description={item.description}
-                        title={item.title}
-                        image={item.image}
-                        price={item.price}
-                    />
-                </TouchableOpacity>
-            )}
-            scrollEnabled={false}
-        />
-    )
-}
-
-export default CheckoutProduct;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: width,
-        padding: 10,
-        alignContent: "center",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginTop: 26
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#fff',
     },
-    image: {
-        borderRadius: 5,
-        height: 210,
-        width: 160
+
+    cartItemCountContainer: {
+        position: 'absolute',
+        top: -5,
+        right: -5,
+        backgroundColor: 'red',
+        borderRadius: 10,
+        paddingHorizontal: 6,
+        paddingVertical: 2,
     },
-    name: {
-        fontSize: 19,
+    cartItemCountText: {
+        color: 'white',
+        fontSize: 12,
         fontWeight: 'bold',
-        marginTop: 10,
-    },
-    description: {
-        opacity: 0.7,
-        fontSize: 16,
-        marginTop: 6
-    },
-    price: {
-        fontSize: 18,
-        color: 'red',
-        marginTop: 10,
-        opacity: 0.8
-    },
-});
+    }
+})
+export default ProductDetails

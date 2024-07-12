@@ -62,6 +62,7 @@ MarkApp
 └── README.md
 
 
+
 ## Screens Overview
 
 ### HomeScreen
@@ -77,6 +78,7 @@ Shows detailed information about a selected product, including an "Add to Cart" 
 ### CartScreen
 
 Displays items added to the cart with an option to remove each item.
+
 ![alt text](MarkApp/assets/Cart.png)
 
 ## Usage

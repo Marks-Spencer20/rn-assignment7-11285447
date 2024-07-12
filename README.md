@@ -43,8 +43,8 @@ MarkApp
 ├── **assets**
 │   ├── add_circle.png
 │   ├── door.png
-│   ├── Plus.png
-│   └── iton.png
+│   ├── Product.png
+│   └── SideMenu.png
 ├── babel.config.js
 ├── package.json
 ├── package-lock.json
@@ -60,24 +60,24 @@ MarkApp
 ├── **context**
 │   └── CartContext.jsx
 └── README.md
-```
+
 
 ## Screens Overview
 
 ### HomeScreen
 
 Displays a list of products fetched from the API. Each product has an "Add to Cart" button.
-MarkApp/assets/Home.png
+![alt text](MarkApp/assets/Home.png)
 
 ### ProductDetailScreen
 
 Shows detailed information about a selected product, including an "Add to Cart" button.
-MarkApp/assets/Details.png
+![alt text](MarkApp/assets/Details.png)
 
 ### CartScreen
 
 Displays items added to the cart with an option to remove each item.
-MarkApp/assets/Cart.png
+![alt text](MarkApp/assets/Cart.png)
 
 ## Usage
 

@@ -35,33 +35,6 @@ MarkApp is a React Native application that showcases a simple e-commerce functio
      npx react-native run-ios
      
 
-## Project Structure
-
-
-MarkApp
-├── App.js
-├── assets
-│   ├── add_circle.png
-│   ├── door.png
-│   ├── Product.png
-│   └── SideMenu.png
-├── babel.config.js
-├── package.json
-├── package-lock.json
-├── screens
-│   ├── CheckoutScreen.jsx
-│   ├── HomeScreen.js
-│   └── ProductDetailScreen.jsx
-├── components
-│   ├── CheckoutProduct.jsx
-│   ├── Header.js
-│   ├── Product.jsx
-│   └── SideMenu.js
-├── context
-│   └── CartContext.jsx
-└── README.md
-
-
 
 ## Screens Overview
 

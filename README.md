@@ -1,8 +1,8 @@
 # rn-assignment7-11285447
 
-# MyEcommerceApp
+# MarkApp
 
-MyEcommerceApp is a React Native application that showcases a simple e-commerce functionality, including viewing product lists, product details, and managing a shopping cart. The app fetches product data from an external API and uses local storage to persist cart items.
+MarkApp is a React Native application that showcases a simple e-commerce functionality, including viewing product lists, product details, and managing a shopping cart. The app fetches product data from an external API and uses local storage to persist cart items.
 
 ## Features
 
@@ -19,44 +19,47 @@ MyEcommerceApp is a React Native application that showcases a simple e-commerce 
 ## Installation
 
 1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/MyEcommerceApp.git
-   cd MyEcommerceApp
-   ```
+   git clone https://github.com/Marks-Spencer20/rn-assignment7-11285447.git
+   cd MarkApp
+   
 
 2. **Install dependencies**:
-   ```bash
    npm install
-   ```
 
-3. **Link native dependencies**:
-   ```bash
-   npx react-native link react-native-reanimated
-   npx pod-install ios
-   ```
 
-4. **Start the application**:
+3. **Start the application**:
    - For Android:
-     ```bash
      npx react-native run-android
-     ```
+     
    - For iOS:
-     ```bash
      npx react-native run-ios
-     ```
+     
 
 ## Project Structure
 
-```
+
 MarkApp
 ├── App.js
+├── **assets**
+│   ├── add_circle.png
+│   ├── door.png
+│   ├── Plus.png
+│   └── iton.png
 ├── babel.config.js
 ├── package.json
-├── screens
+├── package-lock.json
+├── **screens**
+│   ├── CheckoutScreen.jsx
 │   ├── HomeScreen.js
-│   ├── ProductDetailScreen.js
-│   └── CartScreen.js
-└── ...
+│   └── ProductDetailScreen.jsx
+├── **components**
+│   ├── CheckoutProduct.jsx
+│   ├── Header.js
+│   ├── Product.jsx
+│   └── SideMenu.js
+├── **context**
+│   └── CartContext.jsx
+└── README.md
 ```
 
 ## Screens Overview
@@ -64,14 +67,17 @@ MarkApp
 ### HomeScreen
 
 Displays a list of products fetched from the API. Each product has an "Add to Cart" button.
+MarkApp/assets/Home.png
 
 ### ProductDetailScreen
 
 Shows detailed information about a selected product, including an "Add to Cart" button.
+MarkApp/assets/Details.png
 
 ### CartScreen
 
 Displays items added to the cart with an option to remove each item.
+MarkApp/assets/Cart.png
 
 ## Usage
 

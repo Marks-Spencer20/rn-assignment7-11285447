@@ -1,4 +1,4 @@
-import { View, Text, Button, FlatList, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { useState, useEffect } from 'react';
 import addCircle from "../assets/add_circle.png";
 import { useCart } from '../context/CartContext';
@@ -48,7 +48,7 @@ const Product = () => {
             if (response) {
                 const data = await response.json();
                 setProducts(data);
-                //console.log(data);
+                
             }
         } catch (error) {
             console.log("Error fetching Products", error);

@@ -28,7 +28,7 @@ const SideMenu = ({ isOpen, toggleMenu, navigation }) => {
                     <Ionicons name="close-outline" size={33} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => handleNavigation('Home')}>
-                    <Text style={styles.menuItem}>Eric Atsu</Text>
+                    <Text style={styles.menuItem}><strong>Marks Spencer</strong></Text>
 
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => handleNavigation('')}>
@@ -61,16 +61,16 @@ const styles = StyleSheet.create({
         bottom: 0,
         left: -25,
         width: width,
-        height: 700,
+        height: 650,
         zIndex: 1,
 
     },
     menu: {
         flex: 1,
-        padding: 20,
-        backgroundColor: '#fff',
-        width: width * 0.8,
-        height: 200
+        padding: 15,
+        backgroundColor: 'gold',
+        width: width * 0.7,
+        height: 180
     },
     closeIcon: {
         alignSelf: 'flex-end',

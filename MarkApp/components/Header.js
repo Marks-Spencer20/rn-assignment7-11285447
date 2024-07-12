@@ -6,7 +6,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import { TouchableOpacity } from "react-native";
 import { useCart } from "../context/CartContext";
 import { useNavigation } from "@react-navigation/native";
-import SideMenu from "./Sidemenu";
+import SideMenu from "./SideMenu";
 import { useState } from "react";
 
 const Header = () => {

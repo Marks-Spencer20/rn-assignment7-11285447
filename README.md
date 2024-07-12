@@ -41,11 +41,13 @@ MarkApp is a React Native application that showcases a simple e-commerce functio
 ### HomeScreen
 
 Displays a list of products fetched from the API. Each product has an "Add to Cart" button.
+
 ![alt text](MarkApp/assets/Home.png)
 
 ### ProductDetailScreen
 
 Shows detailed information about a selected product, including an "Add to Cart" button.
+
 ![alt text](MarkApp/assets/Details.png)
 
 ### CartScreen

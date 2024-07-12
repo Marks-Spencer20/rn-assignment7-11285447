@@ -40,7 +40,7 @@ MarkApp is a React Native application that showcases a simple e-commerce functio
 
 MarkApp
 ├── App.js
-├── **assets**
+├── assets
 │   ├── add_circle.png
 │   ├── door.png
 │   ├── Product.png
@@ -48,16 +48,16 @@ MarkApp
 ├── babel.config.js
 ├── package.json
 ├── package-lock.json
-├── **screens**
+├── screens
 │   ├── CheckoutScreen.jsx
 │   ├── HomeScreen.js
 │   └── ProductDetailScreen.jsx
-├── **components**
+├── components
 │   ├── CheckoutProduct.jsx
 │   ├── Header.js
 │   ├── Product.jsx
 │   └── SideMenu.js
-├── **context**
+├── context
 │   └── CartContext.jsx
 └── README.md
 
